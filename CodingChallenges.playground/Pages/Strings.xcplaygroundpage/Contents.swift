@@ -64,6 +64,30 @@ assert(challenge5(str: "The rain in Spain", char: "a") == 2, "Challenge 5 failed
 assert(challenge5(str: "Mississippi", char: "i") == 4, "Challenge 5 failed.")
 assert(challenge5(str: "HackingWithSwift", char: "i") == 3, "Challenge 5 failed.")
 
+func challenge6(input: String) -> String {
+    var usedChars = [Character]()
+    let uniqueChars = input.characters.filter {
+        if !usedChars.contains($0) {
+            usedChars.append($0)
+            return true
+        } else {
+            return false
+        }
+    }
+    return String(uniqueChars)
+}
+
+assert(challenge6(input: "wombat") == "wombat", "Challenge 6 failed.")
+assert(challenge6(input: "hello") == "helo", "Challenge 6 failed.")
+assert(challenge6(input: "Mississippi") == "Misp", "Challenge 6 failed.")
+
+func challenge7(input: String) -> String {
+    return input.replacingOccurrences(of: " +", with: " ", options: .regularExpression)
+}
+
+assert(challenge7(input: "a   b  c") == "a b c", "Challenge 7 failed.")
+assert(challenge7(input: "   a") == " a", "Challenge 7 failed.")
+assert(challenge7(input: "abc") == "abc", "Challenge 7 failed.")
 
 
 
