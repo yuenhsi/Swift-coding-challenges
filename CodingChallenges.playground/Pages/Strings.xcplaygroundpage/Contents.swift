@@ -55,24 +55,15 @@ assert("Hello, world".fuzzyContains("Goodbye") == false, "Challenge 4 failed")
 
 func challenge5(str: String, char: Character) -> Int {
     
-    var occurences = 0
-    for ch in str.characters {
-        if ch == char {
-            occurences+=1
-        }
+    return str.characters.reduce(0) {
+        $1 == char ? $0 + 1 : $0
     }
-    return occurences
 }
 
 assert(challenge5(str: "The rain in Spain", char: "a") == 2, "Challenge 5 failed.")
 assert(challenge5(str: "Mississippi", char: "i") == 4, "Challenge 5 failed.")
 assert(challenge5(str: "HackingWithSwift", char: "i") == 3, "Challenge 5 failed.")
 
-
-let names = ["alan","brian","charlie"]
-let csv = names.reduce("===") {text, name in "\(text),\(name)"}
-print(csv)
-// "===,alan,brian,charlie"
 
 
 
