@@ -131,6 +131,24 @@ assert(challenge10(input: "Swift Coding Challenges") == (vowels: 6, consonants: 
 assert(challenge10(input: "Mississippi") == (vowels: 4, consonants: 7), "Challenge 10 failed.")
 
 
+func challenge11(first: String, second: String) -> Bool {
+    if first.characters.count == second.characters.count {
+        var differences = 0
+        for iterator in first.characters.indices {
+            if second[iterator] != first[iterator] {
+                differences += 1
+            }
+        }
+        return differences <= 3
+    }
+    return false
+}
 
+assert(challenge11(first: "Clamp", second: "Cramp") == true, "Challenge 11 failed.")
+assert(challenge11(first: "Clamp", second: "Crams") == true, "Challenge 11 failed.")
+assert(challenge11(first: "Clamp", second: "Grams") == true, "Challenge 11 failed.")
+assert(challenge11(first: "Clamp", second: "Grans") == false, "Challenge 11 failed.")
+assert(challenge11(first: "Clamp", second: "Clam") == false, "Challenge 11 failed.")
+assert(challenge11(first: "clamp", second: "maple") == false, "Challenge 11 failed.")
 
 //: [Next](@next)
