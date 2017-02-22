@@ -151,4 +151,27 @@ assert(challenge11(first: "Clamp", second: "Grans") == false, "Challenge 11 fail
 assert(challenge11(first: "Clamp", second: "Clam") == false, "Challenge 11 failed.")
 assert(challenge11(first: "clamp", second: "maple") == false, "Challenge 11 failed.")
 
+
+func challenge12(input: String) -> String {
+    
+    let strings = input.components(separatedBy: " ")
+    var prefix = ""
+    for ch in strings[0].characters {
+        prefix.append(ch)
+        for item in strings {
+            if !item.hasPrefix(prefix) {
+                return prefix.substring(to: prefix.index(before: prefix.endIndex))
+            }
+        }
+    }
+    return ""
+}
+
+assert(challenge12(input: "swift switch swill swim") == "swi", "Challenge 12 failed.")
+assert(challenge12(input:"flip flap flop") == "fl", "Challenge 12 failed.")
+
+
+
+
+
 //: [Next](@next)
