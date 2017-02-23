@@ -171,7 +171,39 @@ assert(challenge12(input: "swift switch swill swim") == "swi", "Challenge 12 fai
 assert(challenge12(input:"flip flap flop") == "fl", "Challenge 12 failed.")
 
 
+func challenge13(input: String) -> String {
+    
+    guard input.characters.count > 0 else {
+        return ""
+    }
+    
+    var characterCounts = ""
+    var currentChar = input.characters.first!
+    var characterCount = 0
+    
+    for ch in input.characters {
+        if ch == currentChar {
+            characterCount += 1
+        } else {
+            characterCounts += "\(currentChar)\(characterCount)"
+            currentChar = ch
+            characterCount = 1
+        }
+    }
+    characterCounts += "\(currentChar)\(characterCount)"
+    
+    return characterCounts
+}
 
+
+assert(challenge13(input: "aabbcc") == "a2b2c2", "Challenge 13 failed.")
+assert(challenge13(input: "aaabaaabaaa") == "a3b1a3b1a3", "Challenge 13 failed.")
+assert(challenge13(input: "aaAAaa") == "a2A2a2", "Challenge 13 failed.")
+
+
+func challenge14(input: String) -> String {
+    
+}
 
 
 //: [Next](@next)
